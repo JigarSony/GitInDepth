@@ -1,0 +1,1278 @@
+sonij@PMCLAP1257 MINGW64 ~
+$ cd ~/Desktop/Personal/GS/
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS
+$ mkdir SampleProject
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS
+$ cd SampleProject/
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject
+$ ls
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject
+$ ls -la
+total 0
+drwxr-xr-x 1 sonij 1049089 0 May 16 12:50 ./
+drwxr-xr-x 1 sonij 1049089 0 May 16 12:50 ../
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject
+$ git init
+Initialized empty Git repository in C:/Users/sonij/Desktop/Personal/GS/SampleProject/.git/
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ ls -la
+total 4
+drwxr-xr-x 1 sonij 1049089 0 May 16 13:01 ./
+drwxr-xr-x 1 sonij 1049089 0 May 16 12:50 ../
+drwxr-xr-x 1 sonij 1049089 0 May 16 13:01 .git/
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ du -c
+40      ./.git/hooks
+1       ./.git/info
+0       ./.git/objects/info
+0       ./.git/objects/pack
+0       ./.git/objects
+0       ./.git/refs/heads
+0       ./.git/refs/tags
+0       ./.git/refs
+48      ./.git
+48      .
+48      total
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ touch coding.txt
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ echo I love coding > coding.txt
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ cat coding.txt
+I love coding
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git add coding.txt
+warning: LF will be replaced by CRLF in coding.txt.
+The file will have its original line endings in your working directory
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   coding.txt
+
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ du -c
+40      ./.git/hooks
+1       ./.git/info
+1       ./.git/objects/e6
+0       ./.git/objects/info
+0       ./.git/objects/pack
+1       ./.git/objects
+0       ./.git/refs/heads
+0       ./.git/refs/tags
+0       ./.git/refs
+50      ./.git
+51      .
+51      total
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ ^C
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ ls ./.git/objects/e6
+90065515b5188b40a5c0df4a975849d1677aea
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ cat ./git/objects/e6
+cat: ./git/objects/e6: No such file or directory
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ cat ./.git/objects/e6
+cat: ./.git/objects/e6: Is a directory
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ cat ./.git/objects/e6/
+cat: ./.git/objects/e6/: Is a directory
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ cat ./.git/objects/e6/90065515b5188b40a5c0df4a975849d1677aea
+xK▒▒OR04a▒T▒▒/KUH▒O▒▒K▒M▒▒
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ cat ./.git/objects/e6/
+cat: ./.git/objects/e6/: Is a directory
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ cat ./.git/objects/e6/90065515b5188b40a5c0df4a975849d1677aea
+xK▒▒OR04a▒T▒▒/KUH▒O▒▒K▒M▒▒
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ printf "\x1f\x8b\x08\x00\x00\x00\x00\x00" |cat - ./.git/objects/e6/90065515b5188b40a5c0df4a975849d17aea
+xK▒▒OR04a▒T▒▒/KUH▒O▒▒K▒M▒▒
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ printf "\x1f\x8b\x08\x00\x00\x00\x00\x00" |cat - ./.git/objects/e6/90065515b5188b40a5c0df4a975849d17aea |gzip -dc
+blob 14I love coding
+
+gzip: stdin: unexpected end of file
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ ^C
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -p e690
+I love coding
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -s e690
+14
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -t e690
+blob
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ echo -e 'I loveI love' |shasum
+2e85db06319b16380e2c383784cc18effd9c0488 *-
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ echo -e 'I love coding' |shasum
+264d184d9653cb72ede7d2385f4fb9a26d586a09 *-
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ echo -e 'blob 14I love coding' |shasum
+a749034ff843d38cee27a64c888800688270938a *-
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ echo -e 'blob 14/oI love coding' |shasum
+974068f23951462ec27d0da0c2a565621f5f4109 *-
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ echo -e 'blob 14/0I love coding' |shasum
+1b77814473c1c95fbe13507bacc5e710d24e1035 *-
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ echo -e 'blob 14\0I love coding' |shasum
+e690065515b5188b40a5c0df4a975849d1677aea *-
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git commit -am "First commit"
+[master (root-commit) 250a95f] First commit
+ Committer: Jigar Soni <sonij@pmc.local>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 1 insertion(+)
+ create mode 100644 coding.txt
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ du -c
+40      ./.git/hooks
+1       ./.git/info
+1       ./.git/logs/refs/heads
+1       ./.git/logs/refs
+2       ./.git/logs
+1       ./.git/objects/25
+1       ./.git/objects/e2
+1       ./.git/objects/e6
+0       ./.git/objects/info
+0       ./.git/objects/pack
+3       ./.git/objects
+1       ./.git/refs/heads
+0       ./.git/refs/tags
+1       ./.git/refs
+56      ./.git
+57      .
+57      total
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$
+
+
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -p ./.git/objects/25/0a95fbb73b35fd1cff38a409e4063887f9fb14
+fatal: Not a valid object name ./.git/objects/25/0a95fbb73b35fd1cff38a409e4063887f9fb14
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -p 250a95fbb73b35fd1cff38a409e4063887f9fb14
+tree e2adf495f2364725173e5d820faf3a45f87e855c
+author Jigar Soni <sonij@pmc.local> 1589619362 +0530
+committer Jigar Soni <sonij@pmc.local> 1589619362 +0530
+
+First commit
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -p 250a
+tree e2adf495f2364725173e5d820faf3a45f87e855c
+author Jigar Soni <sonij@pmc.local> 1589619362 +0530
+committer Jigar Soni <sonij@pmc.local> 1589619362 +0530
+
+First commit
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -s 250a
+169
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -t 250a
+commit
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -p e2ad
+100644 blob e690065515b5188b40a5c0df4a975849d1677aea    coding.txt
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -s e2ad
+38
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -t e2ad
+tree
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ du -c
+40      ./.git/hooks
+1       ./.git/info
+1       ./.git/logs/refs/heads
+1       ./.git/logs/refs
+2       ./.git/logs
+1       ./.git/objects/25
+1       ./.git/objects/e2
+1       ./.git/objects/e6
+0       ./.git/objects/info
+0       ./.git/objects/pack
+3       ./.git/objects
+1       ./.git/refs/heads
+0       ./.git/refs/tags
+1       ./.git/refs
+56      ./.git
+57      .
+57      total
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ mv coding.txt youtube.txt
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ ls
+youtube.txt
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git add youtube.txt
+warning: LF will be replaced by CRLF in youtube.txt.
+The file will have its original line endings in your working directory
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ du -c
+40      ./.git/hooks
+1       ./.git/info
+1       ./.git/logs/refs/heads
+1       ./.git/logs/refs
+2       ./.git/logs
+1       ./.git/objects/25
+1       ./.git/objects/e2
+1       ./.git/objects/e6
+0       ./.git/objects/info
+0       ./.git/objects/pack
+3       ./.git/objects
+1       ./.git/refs/heads
+0       ./.git/refs/tags
+1       ./.git/refs
+56      ./.git
+57      .
+57      total
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -p e690
+I love coding
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git commit -am "renamed file"
+[master 116638b] renamed file
+ Committer: Jigar Soni <sonij@pmc.local>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ rename coding.txt => youtube.txt (100%)
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ du -c
+40      ./.git/hooks
+1       ./.git/info
+1       ./.git/logs/refs/heads
+1       ./.git/logs/refs
+2       ./.git/logs
+1       ./.git/objects/11
+1       ./.git/objects/14
+1       ./.git/objects/25
+1       ./.git/objects/e2
+1       ./.git/objects/e6
+0       ./.git/objects/info
+0       ./.git/objects/pack
+5       ./.git/objects
+1       ./.git/refs/heads
+0       ./.git/refs/tags
+1       ./.git/refs
+58      ./.git
+59      .
+59      total
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -p 250a95fbb73b35fd1cff38a409e4063887f9fb14
+tree e2adf495f2364725173e5d820faf3a45f87e855c
+author Jigar Soni <sonij@pmc.local> 1589619362 +0530
+committer Jigar Soni <sonij@pmc.local> 1589619362 +0530
+
+First commit
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -p 250a
+tree e2adf495f2364725173e5d820faf3a45f87e855c
+author Jigar Soni <sonij@pmc.local> 1589619362 +0530
+committer Jigar Soni <sonij@pmc.local> 1589619362 +0530
+
+First commit
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -p e2ad
+100644 blob e690065515b5188b40a5c0df4a975849d1677aea    coding.txt
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ du -c
+40      ./.git/hooks
+1       ./.git/info
+1       ./.git/logs/refs/heads
+1       ./.git/logs/refs
+2       ./.git/logs
+1       ./.git/objects/11
+1       ./.git/objects/14
+1       ./.git/objects/25
+1       ./.git/objects/e2
+1       ./.git/objects/e6
+0       ./.git/objects/info
+0       ./.git/objects/pack
+5       ./.git/objects
+1       ./.git/refs/heads
+0       ./.git/refs/tags
+1       ./.git/refs
+58      ./.git
+59      .
+59      total
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -p 1163
+fatal: Not a valid object name 1163
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -p ./.git/objects/11/6638b6d4009fd391ed97abadbee166f85c7e13
+fatal: Not a valid object name ./.git/objects/11/6638b6d4009fd391ed97abadbee166f85c7e13
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -p ./.git/objects/14/496aebc65ca7620f5227ee8fccd4c17e19e8b6
+fatal: Not a valid object name ./.git/objects/14/496aebc65ca7620f5227ee8fccd4c17e19e8b6
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -p 1449
+100644 blob e690065515b5188b40a5c0df4a975849d1677aea    youtube.txt
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -p ./.git/objects/11/6638b6d4009fd391ed97abadbee166f85c7e13
+fatal: Not a valid object name ./.git/objects/11/6638b6d4009fd391ed97abadbee166f85c7e13
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -p 1163
+fatal: Not a valid object name 1163
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -p ./.git/objects/e2/adf495f2364725173e5d820faf3a45f87e855c
+fatal: Not a valid object name ./.git/objects/e2/adf495f2364725173e5d820faf3a45f87e855c
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -p e2ad
+100644 blob e690065515b5188b40a5c0df4a975849d1677aea    coding.txt
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -p e690
+I love coding
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -p 1449
+100644 blob e690065515b5188b40a5c0df4a975849d1677aea    youtube.txt
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -p ./.git/objects/14/
+fatal: Not a valid object name ./.git/objects/14/
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -p ./.git/objects/14/496aebc65ca7620f5227ee8fccd4c17e19e8b6
+496aebc65ca7620f5227ee8fccd4c17e19e8b6
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -p ./.git/objects/14/496aebc65ca7620f5227ee8fccd4c17e19e8b6
+496aebc65ca7620f5227ee8fccd4c17e19e8b6
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -p ./.git/objects/14/496aebc65ca7620f5227ee8fccd4c17e19e8b6
+fatal: Not a valid object name ./.git/objects/14/496aebc65ca7620f5227ee8fccd4c17e19e8b6
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -p ./.git/objects/14/496aebc65ca7620f5227ee8fccd4c17e19e8b6
+496aebc65ca7620f5227ee8fccd4c17e19e8b6
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -p ./.git/objects/14/496aebc65ca7620f5227ee8fccd4c17e19e8b6
+496aebc65ca7620f5227ee8fccd4c17e19e8b6
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -p ./.git/objects/14/496aebc65ca7620f5227ee8fccd4c17e19e8b6
+496aebc65ca7620f5227ee8fccd4c17e19e8b6
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ ls .git/objects/14/
+496aebc65ca7620f5227ee8fccd4c17e19e8b6
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ cp ~/Desktop/1.png .
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ -ls
+bash: -ls: command not found
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ la
+bash: la: command not found
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ -ls
+bash: -ls: command not found
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ cp ~/Desktop/1.png
+cp: missing destination file operand after '/c/Users/sonij/Desktop/1.png'
+Try 'cp --help' for more information.
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ cp ~/Desktop/1.png .
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ ls
+1.png  youtube.txt
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ ls -la
+total 677
+drwxr-xr-x 1 sonij 1049089      0 May 16 15:11 ./
+drwxr-xr-x 1 sonij 1049089      0 May 16 14:39 ../
+drwxr-xr-x 1 sonij 1049089      0 May 16 14:57 .git/
+-rw-r--r-- 1 sonij 1049089 686902 May 16 15:12 1.png
+-rw-r--r-- 1 sonij 1049089     14 May 16 13:05 youtube.txt
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git add 1.png
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ du -c
+40      ./.git/hooks
+1       ./.git/info
+1       ./.git/logs/refs/heads
+1       ./.git/logs/refs
+2       ./.git/logs
+656     ./.git/objects/0c
+1       ./.git/objects/11
+1       ./.git/objects/14
+1       ./.git/objects/25
+1       ./.git/objects/e2
+1       ./.git/objects/e6
+0       ./.git/objects/info
+0       ./.git/objects/pack
+665     ./.git/objects
+1       ./.git/refs/heads
+0       ./.git/refs/tags
+1       ./.git/refs
+718     ./.git
+1391    .
+1391    total
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file ./.git/objects/0c/99e88c10b212a7a4f261fa2626ef37672ee766
+usage: git cat-file (-t [--allow-unknown-type] | -s [--allow-unknown-type] | -e | -p | <type> | --textconv | --filters) [--path=<path>] <object>
+   or: git cat-file (--batch | --batch-check) [--follow-symlinks] [--textconv | --filters]
+
+<type> can be one of: blob, tree, commit, tag
+    -t                    show object type
+    -s                    show object size
+    -e                    exit with zero when there's no error
+    -p                    pretty-print object's content
+    --textconv            for blob objects, run textconv on object's content
+    --filters             for blob objects, run filters on object's content
+    --path <blob>         use a specific path for --textconv/--filters
+    --allow-unknown-type  allow -s and -t to work with broken/corrupt objects
+    --buffer              buffer --batch output
+    --batch[=<format>]    show info and content of objects fed from the standard input
+    --batch-check[=<format>]
+                          show info about objects fed from the standard input
+    --follow-symlinks     follow in-tree symlinks (used with --batch or --batch-check)
+    --batch-all-objects   show all objects with --batch or --batch-check
+    --unordered           do not order --batch-all-objects output
+
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file 0c99
+usage: git cat-file (-t [--allow-unknown-type] | -s [--allow-unknown-type] | -e | -p | <type> | --textconv | --filters) [--path=<path>] <object>
+   or: git cat-file (--batch | --batch-check) [--follow-symlinks] [--textconv | --filters]
+
+<type> can be one of: blob, tree, commit, tag
+    -t                    show object type
+    -s                    show object size
+    -e                    exit with zero when there's no error
+    -p                    pretty-print object's content
+    --textconv            for blob objects, run textconv on object's content
+    --filters             for blob objects, run filters on object's content
+    --path <blob>         use a specific path for --textconv/--filters
+    --allow-unknown-type  allow -s and -t to work with broken/corrupt objects
+    --buffer              buffer --batch output
+    --batch[=<format>]    show info and content of objects fed from the standard input
+    --batch-check[=<format>]
+                          show info about objects fed from the standard input
+    --follow-symlinks     follow in-tree symlinks (used with --batch or --batch-check)
+    --batch-all-objects   show all objects with --batch or --batch-check
+    --unordered           do not order --batch-all-objects output
+
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -t 0c99
+blob
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -s 0c99
+686902
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ vim 1.png
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git commit -am "Image added"
+[master 5ceccfc] Image added
+ Committer: Jigar Soni <sonij@pmc.local>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 1.png
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ du -c
+40      ./.git/hooks
+1       ./.git/info
+1       ./.git/logs/refs/heads
+1       ./.git/logs/refs
+2       ./.git/logs
+656     ./.git/objects/0c
+1       ./.git/objects/11
+1       ./.git/objects/14
+1       ./.git/objects/25
+1       ./.git/objects/4d
+1       ./.git/objects/5c
+1       ./.git/objects/e2
+1       ./.git/objects/e6
+656     ./.git/objects/ec
+0       ./.git/objects/info
+0       ./.git/objects/pack
+1323    ./.git/objects
+1       ./.git/refs/heads
+0       ./.git/refs/tags
+1       ./.git/refs
+1376    ./.git
+2049    .
+2049    total
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -s e690
+14
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -s ec90
+fatal: Not a valid object name ec90
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -s ./.git/objects/ec/464e1e17fbb3f852985cfec9bac163069dd145
+fatal: Not a valid object name ./.git/objects/ec/464e1e17fbb3f852985cfec9bac163069dd145
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -s ec46
+686907
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -s 0c99
+686902
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ du -c
+40      ./.git/hooks
+1       ./.git/info
+1       ./.git/logs/refs/heads
+1       ./.git/logs/refs
+2       ./.git/logs
+656     ./.git/objects/0c
+1       ./.git/objects/11
+1       ./.git/objects/14
+1       ./.git/objects/25
+1       ./.git/objects/4d
+1       ./.git/objects/5c
+1       ./.git/objects/e2
+1       ./.git/objects/e6
+656     ./.git/objects/ec
+0       ./.git/objects/info
+0       ./.git/objects/pack
+1323    ./.git/objects
+1       ./.git/refs/heads
+0       ./.git/refs/tags
+1       ./.git/refs
+1376    ./.git
+2049    .
+2049    total
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git gc --aggressive
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (8/8), done.
+Total 8 (delta 0), reused 0 (delta 0)
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ du -c
+40      ./.git/hooks
+2       ./.git/info
+1       ./.git/logs/refs/heads
+1       ./.git/logs/refs
+2       ./.git/logs
+656     ./.git/objects/0c
+1       ./.git/objects/info
+664     ./.git/objects/pack
+1325    ./.git/objects
+0       ./.git/refs/heads
+0       ./.git/refs/tags
+0       ./.git/refs
+1379    ./.git
+2052    .
+2052    total
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ vim 1.png
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git commit -am "modified image file"
+[master 59ed607] modified image file
+ Committer: Jigar Soni <sonij@pmc.local>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ du -c
+40      ./.git/hooks
+2       ./.git/info
+1       ./.git/logs/refs/heads
+1       ./.git/logs/refs
+2       ./.git/logs
+656     ./.git/objects/0c
+2       ./.git/objects/59
+656     ./.git/objects/67
+1       ./.git/objects/info
+664     ./.git/objects/pack
+1983    ./.git/objects
+1       ./.git/refs/heads
+0       ./.git/refs/tags
+1       ./.git/refs
+2038    ./.git
+2711    .
+2711    total
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git gc --aggressive
+Enumerating objects: 11, done.
+Counting objects: 100% (11/11), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (11/11), done.
+Total 11 (delta 1), reused 7 (delta 0)
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ du -c
+40      ./.git/hooks
+2       ./.git/info
+1       ./.git/logs/refs/heads
+1       ./.git/logs/refs
+2       ./.git/logs
+656     ./.git/objects/0c
+1       ./.git/objects/info
+668     ./.git/objects/pack
+1329    ./.git/objects
+0       ./.git/refs/heads
+0       ./.git/refs/tags
+0       ./.git/refs
+1383    ./.git
+2056    .
+2056    total
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ ls ./.git/objects/pack/
+pack-4e942b4314083ab154c17bc5e8f6d23dc3b0468c.idx
+pack-4e942b4314083ab154c17bc5e8f6d23dc3b0468c.pack
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git log
+commit 59ed607cb23b218ad945dbb5ea698b10c8db7efb (HEAD -> master)
+Author: Jigar Soni <sonij@pmc.local>
+Date:   Sat May 16 17:55:02 2020 +0530
+
+    modified image file
+
+commit 5ceccfcf67d6e435f18b787a5a102c30b47756f2
+Author: Jigar Soni <sonij@pmc.local>
+Date:   Sat May 16 16:08:24 2020 +0530
+
+    Image added
+
+commit 116638b6d4009fd391ed97abadbee166f85c7e13
+Author: Jigar Soni <sonij@pmc.local>
+Date:   Sat May 16 14:57:03 2020 +0530
+
+    renamed file
+
+commit 250a95fbb73b35fd1cff38a409e4063887f9fb14
+Author: Jigar Soni <sonij@pmc.local>
+Date:   Sat May 16 14:26:02 2020 +0530
+
+    First commit
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -p 59ed
+tree 59e3364f241c2389e3e0f880b279c8976b3050be
+parent 5ceccfcf67d6e435f18b787a5a102c30b47756f2
+author Jigar Soni <sonij@pmc.local> 1589631902 +0530
+committer Jigar Soni <sonij@pmc.local> 1589631902 +0530
+
+modified image file
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -t 59ed
+commit
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -p 59e3
+100644 blob 67affd06eb1d50b9a3964171abd08d2eacbaf24a    1.png
+100644 blob e690065515b5188b40a5c0df4a975849d1677aea    youtube.txt
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -t 59e3
+tree
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -t 5cec
+commit
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -p 59ed
+tree 59e3364f241c2389e3e0f880b279c8976b3050be
+parent 5ceccfcf67d6e435f18b787a5a102c30b47756f2
+author Jigar Soni <sonij@pmc.local> 1589631902 +0530
+committer Jigar Soni <sonij@pmc.local> 1589631902 +0530
+
+modified image file
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -p 59e3
+100644 blob 67affd06eb1d50b9a3964171abd08d2eacbaf24a    1.png
+100644 blob e690065515b5188b40a5c0df4a975849d1677aea    youtube.txt
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -p 5cec
+tree 4d4a98187077d4c3bb4334b7fe498caffe845293
+parent 116638b6d4009fd391ed97abadbee166f85c7e13
+author Jigar Soni <sonij@pmc.local> 1589625504 +0530
+committer Jigar Soni <sonij@pmc.local> 1589625504 +0530
+
+Image added
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -p 59ed
+tree 59e3364f241c2389e3e0f880b279c8976b3050be
+parent 5ceccfcf67d6e435f18b787a5a102c30b47756f2
+author Jigar Soni <sonij@pmc.local> 1589631902 +0530
+committer Jigar Soni <sonij@pmc.local> 1589631902 +0530
+
+modified image file
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -p 5cec
+tree 4d4a98187077d4c3bb4334b7fe498caffe845293
+parent 116638b6d4009fd391ed97abadbee166f85c7e13
+author Jigar Soni <sonij@pmc.local> 1589625504 +0530
+committer Jigar Soni <sonij@pmc.local> 1589625504 +0530
+
+Image added
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -p 1166
+tree 14496aebc65ca7620f5227ee8fccd4c17e19e8b6
+parent 250a95fbb73b35fd1cff38a409e4063887f9fb14
+author Jigar Soni <sonij@pmc.local> 1589621223 +0530
+committer Jigar Soni <sonij@pmc.local> 1589621223 +0530
+
+renamed file
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -p 250a
+tree e2adf495f2364725173e5d820faf3a45f87e855c
+author Jigar Soni <sonij@pmc.local> 1589619362 +0530
+committer Jigar Soni <sonij@pmc.local> 1589619362 +0530
+
+First commit
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ du -c
+40      ./.git/hooks
+2       ./.git/info
+1       ./.git/logs/refs/heads
+1       ./.git/logs/refs
+2       ./.git/logs
+656     ./.git/objects/0c
+1       ./.git/objects/info
+668     ./.git/objects/pack
+1329    ./.git/objects
+0       ./.git/refs/heads
+0       ./.git/refs/tags
+0       ./.git/refs
+1383    ./.git
+2056    .
+2056    total
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ ls ./.git/objects/pack/
+pack-4e942b4314083ab154c17bc5e8f6d23dc3b0468c.idx
+pack-4e942b4314083ab154c17bc5e8f6d23dc3b0468c.pack
+  du -c
+40      ./.git/hooks
+2       ./.git/info
+1       ./.git/logs/refs/heads
+1       ./.git/logs/refs
+2       ./.git/logs
+656     ./.git/objects/0c
+1       ./.git/objects/info
+668     ./.git/objects/pack
+1329    ./.git/objects
+0       ./.git/refs/heads
+0       ./.git/refs/tags
+0       ./.git/refs
+1383    ./.git
+2056    .
+2056    total
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+468c.idxrify-pack -v .git/objects/pack/pack-4e942b4314083ab154c17bc5e8f6d23dc3b04
+59ed607cb23b218ad945dbb5ea698b10c8db7efb commit 224 156 12
+5ceccfcf67d6e435f18b787a5a102c30b47756f2 commit 216 152 168
+116638b6d4009fd391ed97abadbee166f85c7e13 commit 217 152 320
+250a95fbb73b35fd1cff38a409e4063887f9fb14 commit 169 122 472
+67affd06eb1d50b9a3964171abd08d2eacbaf24a blob   686910 673056 594
+e690065515b5188b40a5c0df4a975849d1677aea blob   14 23 673650
+59e3364f241c2389e3e0f880b279c8976b3050be tree   72 80 673673
+4d4a98187077d4c3bb4334b7fe498caffe845293 tree   72 80 673753
+ec464e1e17fbb3f852985cfec9bac163069dd145 blob   32 45 673833 1 67affd06eb1d50b9a3964171abd08d2eacbaf24a
+14496aebc65ca7620f5227ee8fccd4c17e19e8b6 tree   39 50 673878
+e2adf495f2364725173e5d820faf3a45f87e855c tree   38 49 673928
+non delta: 10 objects
+chain length = 1: 1 object
+.git/objects/pack/pack-4e942b4314083ab154c17bc5e8f6d23dc3b0468c.pack: ok
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -s 0c99
+68^C
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -s 0c99
+686902
+
+sonij@cat-file -s 0c99^C
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file ec464e1e17
+usage: git cat-file (-t [--allow-unknown-type] | -s [--allow-unknown-type] | -e | -p | <type> | --textconv | --filters) [--path=<path>] <object>
+   or: git cat-file (--batch | --batch-check) [--follow-symlinks] [--textconv | --filters]
+
+<type> can be one of: blob, tree, commit, tag
+    -t                    show object type
+    -s                    show object size
+    -e                    exit with zero when there's no error
+    -p                    pretty-print object's content
+    --textconv            for blob objects, run textconv on object's content
+    --filters             for blob objects, run filters on object's content
+    --path <blob>         use a specific path for --textconv/--filters
+    --allow-unknown-type  allow -s and -t to work with broken/corrupt objects
+    --buffer              buffer --batch output
+    --batch[=<format>]    show info and content of objects fed from the standard input
+    --batch-check[=<format>]
+                          show info about objects fed from the standard input
+    --follow-symlinks     follow in-tree symlinks (used with --batch or --batch-check)
+    --batch-all-objects   show all objects with --batch or --batch-check
+    --unordered           do not order --batch-all-objects output
+
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file ec464e1e17
+usage: git cat-file (-t [--allow-unknown-type] | -s [--allow-unknown-type] | -e | -p | <type> | --textconv | --filters) [--path=<path>] <object>
+   or: git cat-file (--batch | --batch-check) [--follow-symlinks] [--textconv | --filters]
+
+<type> can be one of: blob, tree, commit, tag
+    -t                    show object type
+    -s                    show object size
+    -e                    exit with zero when there's no error
+    -p                    pretty-print object's content
+    --textconv            for blob objects, run textconv on object's content
+    --filters             for blob objects, run filters on object's content
+    --path <blob>         use a specific path for --textconv/--filters
+    --allow-unknown-type  allow -s and -t to work with broken/corrupt objects
+    --buffer              buffer --batch output
+    --batch[=<format>]    show info and content of objects fed from the standard input
+    --batch-check[=<format>]
+                          show info about objects fed from the standard input
+    --follow-symlinks     follow in-tree symlinks (used with --batch or --batch-check)
+    --batch-all-objects   show all objects with --batch or --batch-check
+    --unordered           do not order --batch-all-objects output
+
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -s ec464e1e17fbb3f852985cfec9bac163069dd145
+686907
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git cat-file -s 67affd06eb1d50b9a3964171abd08d2eacbaf24a
+686910
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (master)
+$ git checkout -b my_feature
+Switched to a new branch 'my_feature'
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (my_feature)
+$ du -c
+40      ./.git/hooks
+2       ./.git/info
+2       ./.git/logs/refs/heads
+2       ./.git/logs/refs
+6       ./.git/logs
+656     ./.git/objects/0c
+1       ./.git/objects/info
+668     ./.git/objects/pack
+1329    ./.git/objects
+1       ./.git/refs/heads
+0       ./.git/refs/tags
+1       ./.git/refs
+1388    ./.git
+2061    .
+2061    total
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (my_feature)
+$ ls ./.git/logs/refs/heads/
+master  my_feature
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (my_feature)
+$ ls ./.git/logs/refs/heads/my_feature
+./.git/logs/refs/heads/my_feature
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (my_feature)
+$ ls -la .git/logs/refs/heads/my_feature
+-rw-r--r-- 1 sonij 1049089 154 May 16 22:27 .git/logs/refs/heads/my_feature
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (my_feature)
+$ cat .git/logs/refs/heads/my_feature
+0000000000000000000000000000000000000000 59ed607cb23b218ad945dbb5ea698b10c8db7efb Jigar Soni <sonij@pmc.local> 1589648276 +0530    branch: Created from HEAD
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (my_feature)
+$ git cat-file -p 59ed607cb23b218ad945dbb5ea698b10c8db7efb
+tree 59e3364f241c2389e3e0f880b279c8976b3050be
+parent 5ceccfcf67d6e435f18b787a5a102c30b47756f2
+author Jigar Soni <sonij@pmc.local> 1589631902 +0530
+committer Jigar Soni <sonij@pmc.local> 1589631902 +0530
+
+modified image file
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (my_feature)
+$ git cat-file -t 59ed607cb23b218ad945dbb5ea698b10c8db7efb
+commit
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (my_feature)
+$ touch first_file.txt
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (my_feature)
+$ git add first_file.txt
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (my_feature)
+$ git commit -am "added another"
+[my_feature 94a9ab0] added another
+ Committer: Jigar Soni <sonij@pmc.local>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly. Run the
+following command and follow the instructions in your editor to edit
+your configuration file:
+
+    git config --global --edit
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 first_file.txt
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (my_feature)
+$ cat .git/logs/refs/heads/my_feature
+0000000000000000000000000000000000000000 59ed607cb23b218ad945dbb5ea698b10c8db7efb Jigar Soni <sonij@pmc.local> 1589648276 +0530    branch: Created from HEAD
+59ed607cb23b218ad945dbb5ea698b10c8db7efb 94a9ab01006f67cba43064c70f4cdb61edcc4754 Jigar Soni <sonij@pmc.local> 1589648893 +0530    commit: added another
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (my_feature)
+$ git cat-file -p 94a9
+tree 566de4bcfbb939cb3316cee6819459031bb33066
+parent 59ed607cb23b218ad945dbb5ea698b10c8db7efb
+author Jigar Soni <sonij@pmc.local> 1589648893 +0530
+committer Jigar Soni <sonij@pmc.local> 1589648893 +0530
+
+added another
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (my_feature)
+$ cat .git/logs/refs/heads/master
+0000000000000000000000000000000000000000 250a95fbb73b35fd1cff38a409e4063887f9fb14 Jigar Soni <sonij@pmc.local> 1589619362 +0530      commit (initial): First commit
+250a95fbb73b35fd1cff38a409e4063887f9fb14 116638b6d4009fd391ed97abadbee166f85c7e13 Jigar Soni <sonij@pmc.local> 1589621223 +0530      commit: renamed file
+116638b6d4009fd391ed97abadbee166f85c7e13 5ceccfcf67d6e435f18b787a5a102c30b47756f2 Jigar Soni <sonij@pmc.local> 1589625504 +0530      commit: Image added
+5ceccfcf67d6e435f18b787a5a102c30b47756f2 59ed607cb23b218ad945dbb5ea698b10c8db7efb Jigar Soni <sonij@pmc.local> 1589631902 +0530      commit: modified image file
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (my_feature)
+$ git log
+commit 94a9ab01006f67cba43064c70f4cdb61edcc4754 (HEAD -> my_feature)
+Author: Jigar Soni <sonij@pmc.local>
+Date:   Sat May 16 22:38:13 2020 +0530
+
+    added another
+
+commit 59ed607cb23b218ad945dbb5ea698b10c8db7efb (master)
+Author: Jigar Soni <sonij@pmc.local>
+Date:   Sat May 16 17:55:02 2020 +0530
+
+    modified image file
+
+commit 5ceccfcf67d6e435f18b787a5a102c30b47756f2
+Author: Jigar Soni <sonij@pmc.local>
+Date:   Sat May 16 16:08:24 2020 +0530
+
+    Image added
+
+commit 116638b6d4009fd391ed97abadbee166f85c7e13
+Author: Jigar Soni <sonij@pmc.local>
+Date:   Sat May 16 14:57:03 2020 +0530
+
+    renamed file
+
+commit 250a95fbb73b35fd1cff38a409e4063887f9fb14
+Author: Jigar Soni <sonij@pmc.local>
+Date:   Sat May 16 14:26:02 2020 +0530
+
+    First commit
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (my_feature)
+$ git rebase --interactive~3
+error: unknown option `interactive~3'
+usage: git rebase [-i] [options] [--exec <cmd>] [--onto <newbase>] [<upstream>] [<branch>]
+   or: git rebase [-i] [options] [--exec <cmd>] [--onto <newbase>] --root [<branch>]
+   or: git rebase --continue | --abort | --skip | --edit-todo
+
+    --onto <revision>     rebase onto given branch instead of upstream
+    --no-verify           allow pre-rebase hook to run
+    -q, --quiet           be quiet. implies --no-stat
+    -v, --verbose         display a diffstat of what changed upstream
+    -n, --no-stat         do not show diffstat of what changed upstream
+    --signoff             add a Signed-off-by: line to each commit
+    --ignore-whitespace   passed to 'git am'
+    --committer-date-is-author-date
+                          passed to 'git am'
+    --ignore-date         passed to 'git am'
+    -C <n>                passed to 'git apply'
+    --whitespace <action>
+                          passed to 'git apply'
+    -f, --force-rebase    cherry-pick all commits, even if unchanged
+    --no-ff               cherry-pick all commits, even if unchanged
+    --continue            continue
+    --skip                skip current patch and continue
+    --abort               abort and check out the original branch
+    --quit                abort but keep HEAD where it is
+    --edit-todo           edit the todo list during an interactive rebase
+    --show-current-patch  show the patch file being applied or merged
+    -m, --merge           use merging strategies to rebase
+    -i, --interactive     let the user edit the list of commits to rebase
+    -p, --preserve-merges
+                          try to recreate merges instead of ignoring them
+    --rerere-autoupdate   allow rerere to update index with resolved conflict
+    -k, --keep-empty      preserve empty commits during rebase
+    --autosquash          move commits that begin with squash!/fixup! under -i
+    -S, --gpg-sign[=<key-id>]
+                          GPG-sign commits
+    --autostash           automatically stash/stash pop before and after
+    -x, --exec <exec>     add exec lines after each commit of the editable list
+    --allow-empty-message
+                          allow rebasing commits with empty messages
+    -r, --rebase-merges[=<mode>]
+                          try to rebase merges instead of skipping them
+    --fork-point          use 'merge-base --fork-point' to refine upstream
+    -s, --strategy <strategy>
+                          use the given merge strategy
+    -X, --strategy-option <option>
+                          pass the argument through to the merge strategy
+    --root                rebase all reachable commits up to the root(s)
+    --reschedule-failed-exec
+                          automatically re-schedule any `exec` that fails
+
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (my_feature)
+$ git rebase --interactive HEAD~3
+Successfully rebased and updated refs/heads/my_feature.
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (my_feature)
+$ git log
+commit 5f521c71cac7886074c2937985fb4a54e62b36d0 (HEAD -> my_feature)
+Author: Jigar Soni <sonij@pmc.local>
+Date:   Sat May 16 16:08:24 2020 +0530
+
+    Image added
+
+commit 116638b6d4009fd391ed97abadbee166f85c7e13
+Author: Jigar Soni <sonij@pmc.local>
+Date:   Sat May 16 14:57:03 2020 +0530
+
+    renamed file
+
+commit 250a95fbb73b35fd1cff38a409e4063887f9fb14
+Author: Jigar Soni <sonij@pmc.local>
+Date:   Sat May 16 14:26:02 2020 +0530
+
+    First commit
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (my_feature)
+$ git gc --agressive
+error: unknown option `agressive'
+usage: git gc [<options>]
+
+    -q, --quiet           suppress progress reporting
+    --prune[=<date>]      prune unreferenced objects
+    --aggressive          be more thorough (increased runtime)
+    --auto                enable auto-gc mode
+    --force               force running gc even if there may be another gc running
+    --keep-largest-pack   repack all other packs except the largest pack
+
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (my_feature)
+$ git gc --aggressive
+Enumerating objects: 16, done.
+Counting objects: 100% (16/16), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (12/12), done.
+Writing objects: 100% (16/16), done.
+Total 16 (delta 3), reused 9 (delta 0)
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (my_feature)
+$ du
+40      ./.git/hooks
+2       ./.git/info
+2       ./.git/logs/refs/heads
+2       ./.git/logs/refs
+6       ./.git/logs
+656     ./.git/objects/0c
+1       ./.git/objects/info
+668     ./.git/objects/pack
+1329    ./.git/objects
+0       ./.git/refs/heads
+0       ./.git/refs/tags
+0       ./.git/refs
+1388    ./.git
+2061    .
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (my_feature)
+$ du -
+du: cannot access '-': No such file or directory
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (my_feature)
+$ du -c
+40      ./.git/hooks
+2       ./.git/info
+2       ./.git/logs/refs/heads
+2       ./.git/logs/refs
+6       ./.git/logs
+656     ./.git/objects/0c
+1       ./.git/objects/info
+668     ./.git/objects/pack
+1329    ./.git/objects
+0       ./.git/refs/heads
+0       ./.git/refs/tags
+0       ./.git/refs
+1388    ./.git
+2061    .
+2061    total
+
+sonij@PMCLAP1257 MINGW64 ~/Desktop/Personal/GS/SampleProject (my_feature)
+$

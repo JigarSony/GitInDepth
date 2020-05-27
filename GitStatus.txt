@@ -1,0 +1,37 @@
+https://www.youtube.com/watch?v=b3TLeKkED8M&feature=youtu.be&fbclid=IwAR0AU3OvRL7lXMqRw3AknZ9r4r-6lEJAFRH2Q7spO_O1YSJVfXcIx68k63w
+
+Here I have learned new thing in Git
+
+It's Regarding git status 
+
+Create any folder
+>Git init
+>Add two files in this and add it and commit
+
+Create new file and do
+>touch file2.txt
+
+>git status - it will give file2.txt untracked
+
+>git status -s : will give you the same
+AS ??file2.txt
+
+>git add file2.txt
+
+>git status -s : will give you the same
+A file2.txt
+:it is tracked by git and it is in staging area
+
+Now Add something in that file 
+>echo something > file2.txt
+
+See the content
+>cat file2.txt
+
+>git status -s : will give you the same
+AM file2.txt
+
+
+it will hows you that file added but change happend in this file and tha is not commited yet.
+
+ 

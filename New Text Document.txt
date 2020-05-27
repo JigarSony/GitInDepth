@@ -1,0 +1,13 @@
+https://www.youtube.com/watch?v=DjOk0jnqsLk&t=394s
+
+
+https://secure.phabricator.com/book/phabricator/article/arcanist/
+
+
+https://www.youtube.com/watch?v=mRpmf5pNHqY
+
+https://github.com/coding-parrot/projects/blob/master/git_commands.txt
+
+https://github.com/coding-parrot/projects/blob/master/Transformer.go
+
+https://github.com/yogitaAP/codereviewgkcs/compare/53ed96b323f7b2dd85696a1689a8fdde53da3988...bef32a8cb9c15789bfa24d9ea648006921d11027
