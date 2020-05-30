@@ -1,0 +1,29 @@
+mkdir "folder Name"
+git init
+ls 
+ls -a 
+git status 
+git branch -vv
+git log 
+git log --all --graph --decorate --oneline
+git merge <branchname>
+git merge --abort
+git merge --continue
+git merge tool
+ls .git
+git remote
+git clone
+git clone --shallow
+git push
+git fetch
+git pull - git fetch _ git merge
+git config
+git add -p 1.txt
+git diff --cache
+git blame
+git stash
+git stash pop
+git bisect
+.gitignore
+
+
